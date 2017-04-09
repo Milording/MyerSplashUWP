@@ -3,11 +3,11 @@ using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Composition;
-using CompositionHelper;
 using System.Numerics;
 using Windows.UI.Xaml.Data;
 using Windows.ApplicationModel;
 using MyerSplashShared.Utils;
+using MyerSplash.Common;
 
 namespace MyerSplash.UC
 {

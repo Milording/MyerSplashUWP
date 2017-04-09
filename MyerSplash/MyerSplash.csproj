@@ -109,9 +109,11 @@
     <Compile Include="Common\BackgroundTaskRegister.cs" />
     <Compile Include="Common\BindablePage.cs" />
     <Compile Include="Common\CachedFileNames.cs" />
+    <Compile Include="Common\Composition\CompositionAnimationBuilder.cs" />
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\CustomizedTitleBarPage.cs" />
     <Compile Include="Common\DownloadStatus.cs" />
+    <Compile Include="Common\Composition\CompositionExtensions.cs" />
     <Compile Include="Common\GlobalLocaleHelper.cs" />
     <Compile Include="Common\JumpListHelper.cs" />
     <Compile Include="Common\MessengerTokens.cs" />

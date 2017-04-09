@@ -11,15 +11,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "CompositionHelper/1.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        }
-      },
       "FlipperControl/1.0.6": {
         "type": "package",
         "compile": {
@@ -2112,15 +2103,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "CompositionHelper/1.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        }
-      },
       "FlipperControl/1.0.6": {
         "type": "package",
         "compile": {
@@ -4068,15 +4050,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "CompositionHelper/1.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        }
-      },
       "FlipperControl/1.0.6": {
         "type": "package",
         "compile": {
@@ -5979,15 +5952,6 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "CompositionHelper/1.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/CompositionHelper.dll": {}
         }
       },
       "FlipperControl/1.0.6": {
@@ -7946,15 +7910,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "CompositionHelper/1.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        }
-      },
       "FlipperControl/1.0.6": {
         "type": "package",
         "compile": {
@@ -9857,15 +9812,6 @@
         },
         "runtime": {
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
-        }
-      },
-      "CompositionHelper/1.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/CompositionHelper.dll": {}
         }
       },
       "FlipperControl/1.0.6": {
@@ -11824,15 +11770,6 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
-      "CompositionHelper/1.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        },
-        "runtime": {
-          "lib/uap10.0/CompositionHelper.dll": {}
-        }
-      },
       "FlipperControl/1.0.6": {
         "type": "package",
         "compile": {
@@ -13739,19 +13676,6 @@
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll",
         "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.pdb"
-      ]
-    },
-    "CompositionHelper/1.0.4": {
-      "sha512": "M1oeXyg6iXg6SUV5ngjQpABR9vYWMdZi7b9vzErUAQNOI9GY5QG981shELofbHoWty7dTIPGTdinAM2u7K4J/Q==",
-      "type": "package",
-      "path": "compositionhelper/1.0.4",
-      "files": [
-        "compositionhelper.1.0.4.nupkg.sha512",
-        "compositionhelper.nuspec",
-        "lib/uap10.0/CompositionHelper.XML",
-        "lib/uap10.0/CompositionHelper.dll",
-        "lib/uap10.0/CompositionHelper.pri",
-        "lib/uap10.0/CompositionHelper/Properties/CompositionHelper.rd.xml"
       ]
     },
     "FlipperControl/1.0.6": {
@@ -17486,7 +17410,6 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "CompositionHelper >= 1.0.4",
       "FlipperControl >= 1.0.6",
       "ImageLib.UWP >= 5.2.0",
       "JP.Utils.UWP >= 1.1.29",
@@ -17531,7 +17454,6 @@
       }
     },
     "dependencies": {
-      "CompositionHelper": "1.0.4",
       "FlipperControl": "1.0.6",
       "ImageLib.UWP": "5.2.0",
       "JP.Utils.UWP": "1.1.29",

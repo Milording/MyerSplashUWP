@@ -3,6 +3,7 @@ using CompositionHelper.Animation.Fluent;
 using GalaSoft.MvvmLight.Messaging;
 using JP.Utils.Debug;
 using MyerSplash.Common;
+using MyerSplash.Common.Composition;
 using MyerSplash.Model;
 using MyerSplashCustomControl;
 using System;
@@ -124,16 +125,16 @@ namespace MyerSplash.UC
 
         private void ResetVisualInitState()
         {
-            _infoGridVisual.Offset = new Vector3(0f, -100f, 0);
-            _shareBtnVisual.Offset = new Vector3(150f, 0f, 0f);
-            _flipperVisual.Offset = new Vector3(170f, 0f, 0f);
+            _infoGridVisual.SetTranslation(new Vector3(0f, -100f, 0));
+            _shareBtnVisual.SetTranslation(new Vector3(150f, 0f, 0f));
+            _flipperVisual.SetTranslation(new Vector3(170f, 0f, 0f));
             _detailGridVisual.Opacity = 0;
             _taskbarImageVisual.Opacity = 0;
             _lockScreenImageVisual.Opacity = 0;
             _previewBtnVisual.Opacity = 1;
             _setAsSPVisual.Opacity = 0;
-            _setAsSPVisual.Offset = new Vector3(0f, 150f, 0f);
-            _exifInfoVisual.Offset = new Vector3(0f, 200f, 0f);
+            _setAsSPVisual.SetTranslation(new Vector3(0f, 150f, 0f);
+            _exifInfoVisual.SetTranslation(new Vector3(0f, 200f, 0f);
 
             PhotoSV.ChangeView(null, 0, null);
             StartLoadingAnimation();
@@ -179,7 +180,6 @@ namespace MyerSplash.UC
                 .Animate(AnimateProperties.Opacity)
                 .To(show ? 1 : 0)
                 .Spend(300)
-                .Over()
                 .Start();
         }
 
@@ -226,7 +226,7 @@ namespace MyerSplash.UC
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(1000);
             offsetAnimation.DelayTime = TimeSpan.FromMilliseconds(show ? 500 : 0);
 
-            _flipperVisual.StartAnimation("Offset", offsetAnimation);
+            _flipperVisual.StartAnimation("Translation", offsetAnimation);
         }
 
         private void ToggleShareBtnAnimation(bool show)
@@ -236,7 +236,7 @@ namespace MyerSplash.UC
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(show ? 1000 : 400);
             offsetAnimation.DelayTime = TimeSpan.FromMilliseconds(show ? 400 : 0);
 
-            _shareBtnVisual.StartAnimation("Offset", offsetAnimation);
+            _shareBtnVisual.StartAnimation("Translation", offsetAnimation);
         }
 
         private void ToggleInfoGridAnimation(bool show)
@@ -246,7 +246,7 @@ namespace MyerSplash.UC
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(500);
             offsetAnimation.DelayTime = TimeSpan.FromMilliseconds(show ? 500 : 0);
 
-            _infoGridVisual.StartAnimation("Offset", offsetAnimation);
+            _infoGridVisual.StartAnimation("Translation", offsetAnimation);
         }
 
         private void DetailGrid_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -468,9 +468,8 @@ namespace MyerSplash.UC
                     .Animate(AnimateProperties.Opacity)
                     .To(0)
                     .Spend(300)
-                    .Over()
                     .Start()
-                    .Completed += (sender, e) =>
+                    .OnCompleted += (sender, e) =>
                       {
                           if (_showingPreview == 2)
                           {
@@ -496,7 +495,6 @@ namespace MyerSplash.UC
                     .Animate(AnimateProperties.Opacity)
                     .To(1)
                     .Spend(300)
-                    .Over()
                     .Start();
             }
         }
@@ -517,12 +515,11 @@ namespace MyerSplash.UC
             }
             SetAsSP.Visibility = Visibility.Visible;
             _setAsSPVisual.StartBuildAnimation()
-                  .Animate(AnimateProperties.Offset.Y)
+                  .Animate(AnimateProperties.TranslationY)
                   .To(show ? 0 : 150f)
                   .Spend(500)
-                  .Over()
                   .Start()
-                  .Completed += (sender, e) =>
+                  .OnCompleted += (sender, e) =>
                   {
                       if (!show)
                       {
@@ -533,7 +530,6 @@ namespace MyerSplash.UC
                   .Animate(AnimateProperties.Opacity)
                   .To(show ? 1 : 0)
                   .Spend(300)
-                  .Over()
                   .Start();
         }
 
@@ -544,9 +540,8 @@ namespace MyerSplash.UC
                    .Animate(AnimateProperties.Opacity)
                    .To(0)
                    .Spend(300)
-                   .Over()
                    .Start()
-                   .Completed += (sender, e) =>
+                   .OnCompleted += (sender, e) =>
                    {
                        TaskBarImage.Visibility = Visibility.Collapsed;
                    };
@@ -554,9 +549,8 @@ namespace MyerSplash.UC
                   .Animate(AnimateProperties.Opacity)
                   .To(0)
                   .Spend(300)
-                  .Over()
                   .Start()
-                  .Completed += (sender, e) =>
+                  .OnCompleted += (sender, e) =>
                   {
                       LockImage.Visibility = Visibility.Collapsed;
                   };

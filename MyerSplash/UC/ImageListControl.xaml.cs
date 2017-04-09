@@ -66,7 +66,7 @@ namespace MyerSplash.UC
         {
             this.InitializeComponent();
             this._compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
-            this._listVisual = ElementCompositionPreview.GetElementVisual(ImageGridView);
+            this._listVisual = ImageGridView.GetVisual();
         }
 
         private void ImageGridView_ItemClick(object sender, ItemClickEventArgs e)
@@ -91,7 +91,7 @@ namespace MyerSplash.UC
             var rootGrid = (container as GridViewItem).ContentTemplateRoot as Grid;
             Canvas.SetZIndex(container, ++_zindex);
 
-            _containerVisual = ElementCompositionPreview.GetElementVisual(container);
+            _containerVisual = container.GetVisual();
 
             var maskBorder = rootGrid.Children[2] as FrameworkElement;
             var img = rootGrid.Children[1] as FrameworkElement;
@@ -115,7 +115,7 @@ namespace MyerSplash.UC
             fadeAnimation.InsertKeyFrame(1f, 0.5f);
             fadeAnimation.Duration = TimeSpan.FromMilliseconds(400);
 
-            _containerVisual.StartAnimation("Offset", offsetAnimation);
+            _containerVisual.StartAnimation("Translation", offsetAnimation);
             _containerVisual.StartAnimation("Scale.x", scaleAnimation);
             _containerVisual.StartAnimation("Scale.y", scaleAnimation);
         }
@@ -130,7 +130,7 @@ namespace MyerSplash.UC
             scaleAnimation.InsertKeyFrame(1f, 1f);
             scaleAnimation.Duration = TimeSpan.FromMilliseconds(500);
 
-            _containerVisual.StartAnimation("Offset", offsetAnimation);
+            _containerVisual.StartAnimation("Translation", offsetAnimation);
             _containerVisual.StartAnimation("Scale.x", scaleAnimation);
             _containerVisual.StartAnimation("Scale.y", scaleAnimation);
         }
@@ -161,11 +161,11 @@ namespace MyerSplash.UC
             // Don't animate if we're not in the visible viewport
             if (itemIndex >= itemsPanel.FirstVisibleIndex && itemIndex <= itemsPanel.LastVisibleIndex)
             {
-                var itemVisual = ElementCompositionPreview.GetElementVisual(itemContainer);
+                var itemVisual = itemContainer.GetVisual();
                 var delayIndex = itemIndex - itemsPanel.FirstVisibleIndex;
 
                 itemVisual.Opacity = 0f;
-                itemVisual.Offset = new Vector3(50, 0, 0);
+                itemVisual.SetTranslation(new Vector3(50, 0, 0));
 
                 // Create KeyFrameAnimations
                 var offsetAnimation = _compositor.CreateScalarKeyFrameAnimation();
@@ -179,7 +179,7 @@ namespace MyerSplash.UC
                 fadeAnimation.DelayTime = TimeSpan.FromMilliseconds(delayIndex * 100);
 
                 // Start animations
-                itemVisual.StartAnimation("Offset.X", offsetAnimation);
+                itemVisual.StartAnimation("Translation.X", offsetAnimation);
                 itemVisual.StartAnimation("Opacity", fadeAnimation);
             }
             itemContainer.Loaded -= ItemContainer_Loaded;
@@ -207,7 +207,7 @@ namespace MyerSplash.UC
             rootGrid.PointerExited += RootGrid_PointerExited;
 
             var maskBorder = rootGrid.Children[2] as FrameworkElement;
-            var maskVisual = ElementCompositionPreview.GetElementVisual(maskBorder);
+            var maskVisual = maskBorder.GetVisual();
             maskVisual.Opacity = 0f;
         }
 
@@ -279,8 +279,8 @@ namespace MyerSplash.UC
 
         private void ToggleItemPointAnimation(FrameworkElement mask, FrameworkElement img, bool show)
         {
-            var maskVisual = ElementCompositionPreview.GetElementVisual(mask);
-            var imgVisual = ElementCompositionPreview.GetElementVisual(img);
+            var maskVisual = mask.GetVisual();
+            var imgVisual = img.GetVisual();
 
             var fadeAnimation = CreateFadeAnimation(show);
             var scaleAnimation = CreateScaleAnimation(show);
@@ -317,7 +317,7 @@ namespace MyerSplash.UC
             offsetAnimation.InsertKeyFrame(1f, 100f);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(300);
 
-            _listVisual.StartAnimation("Offset.y", offsetAnimation);
+            _listVisual.StartAnimation("Translation.y", offsetAnimation);
             LoadingControl.Visibility = Visibility.Visible;
             LoadingControl.Start();
         }
@@ -328,7 +328,7 @@ namespace MyerSplash.UC
             offsetAnimation.InsertKeyFrame(1f, 0f);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(300);
 
-            _listVisual.StartAnimation("Offset.y", offsetAnimation);
+            _listVisual.StartAnimation("Translation.y", offsetAnimation);
             LoadingControl.Visibility = Visibility.Collapsed;
             LoadingControl.Stop();
         }

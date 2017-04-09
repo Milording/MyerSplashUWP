@@ -85,7 +85,7 @@ namespace MyerSplash.View
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             _drawerMaskVisual.Opacity = 0;
-            _drawerVisual.Offset = new Vector3(-DRAWER_WIDTH, 0f, 0f);
+            _drawerVisual.SetTranslation(new Vector3(-DRAWER_WIDTH, 0f, 0f));
 
             DrawerMaskBorder.Visibility = Visibility.Collapsed;
         }
@@ -112,11 +112,11 @@ namespace MyerSplash.View
         private void InitComposition()
         {
             _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
-            _drawerVisual = ElementCompositionPreview.GetElementVisual(DrawerControl);
-            _drawerMaskVisual = ElementCompositionPreview.GetElementVisual(DrawerMaskBorder);
-            _titleGridVisual = ElementCompositionPreview.GetElementVisual(TitleGrid);
-            _refreshBtnVisual = ElementCompositionPreview.GetElementVisual(RefreshBtn);
-            _titleStackVisual = ElementCompositionPreview.GetElementVisual(TitleStack);
+            _drawerVisual = DrawerControl.GetVisual();
+            _drawerMaskVisual = DrawerMaskBorder.GetVisual();
+            _titleGridVisual = TitleGrid.GetVisual();
+            _refreshBtnVisual = RefreshBtn.GetVisual();
+            _titleStackVisual = TitleStack.GetVisual();
         }
 
         #region Loading animation
@@ -138,7 +138,7 @@ namespace MyerSplash.View
             offsetAnim.InsertKeyFrame(1f, show ? 0f : -DRAWER_WIDTH);
             offsetAnim.Duration = TimeSpan.FromMilliseconds(300);
 
-            _drawerVisual.StartAnimation("Offset.X", offsetAnim);
+            _drawerVisual.StartAnimation("Translation.X", offsetAnim);
         }
 
         private void ToggleDrawerMaskAnimation(bool show)
@@ -265,7 +265,7 @@ namespace MyerSplash.View
             offsetAnimation.InsertKeyFrame(1f, show ? 0f : -100f);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(500);
 
-            _titleGridVisual.StartAnimation("Offset.Y", offsetAnimation);
+            _titleGridVisual.StartAnimation("Translation.Y", offsetAnimation);
         }
 
         private void ToggleRefreshBtnAnimation(bool show)
@@ -285,7 +285,7 @@ namespace MyerSplash.View
             offsetAnimation.InsertKeyFrame(1f, show ? 0f : -100f);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(500);
 
-            _titleStackVisual.StartAnimation("Offset.Y", offsetAnimation);
+            _titleStackVisual.StartAnimation("Translation.Y", offsetAnimation);
         }
 
         private void ListControl_OnScrollViewerViewChanged(ScrollViewer scrollViewer)
