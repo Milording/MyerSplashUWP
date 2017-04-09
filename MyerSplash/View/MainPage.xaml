@@ -173,8 +173,7 @@
             Grid.RowSpan="2"
             attach:UIElementTapCommand.ItemTapCommand="{x:Bind MainVM.OpenDrawerCommand, Mode=OneWay}"
             d:IsHidden="True"
-            Background="Black"
-            Opacity="0.8" />
+            Background="Black" />
         <uc:DrawerControl
             x:Name="DrawerControl"
             Grid.RowSpan="2"

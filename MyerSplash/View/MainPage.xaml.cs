@@ -146,7 +146,7 @@ namespace MyerSplash.View
             if (show) DrawerMaskBorder.Visibility = Visibility.Visible;
 
             var fadeAnimation = _compositor.CreateScalarKeyFrameAnimation();
-            fadeAnimation.InsertKeyFrame(1f, show ? 1f : 0f);
+            fadeAnimation.InsertKeyFrame(1f, show ? 0.8f : 0f);
             fadeAnimation.Duration = TimeSpan.FromMilliseconds(500);
 
             var batch = _compositor.CreateScopedBatch(CompositionBatchTypes.Animation);
