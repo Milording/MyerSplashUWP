@@ -86,7 +86,7 @@ namespace MyerSplash.UC
             _contentVisual.CenterPoint = new Vector3((float)(ContentGrid.ActualWidth / 2f), (float)(ContentGrid.ActualHeight / 2f), 1f);
 
             var maskAnimation = _compositor.CreateScalarKeyFrameAnimation();
-            maskAnimation.InsertKeyFrame(1f, Shown ? 1f : 0f);
+            maskAnimation.InsertKeyFrame(1f, Shown ? 0.8f : 0f);
             maskAnimation.Duration = TimeSpan.FromMilliseconds(400);
 
             var contentAnimation = _compositor.CreateVector3KeyFrameAnimation();
