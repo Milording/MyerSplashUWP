@@ -100,7 +100,8 @@ namespace MyerSplash.Common
                 (IsWide ? (float)this.ActualHeight : (float)this.ActualWidth));
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(800);
 
-            _rootVisual.StartAnimation(IsWide ? "Translation.Y" : "Translation.X", offsetAnimation);
+            _rootVisual.StartAnimation(IsWide ? _rootVisual.GetTranslationYPropertyName()
+                : _rootVisual.GetTranslationXPropertyName(), offsetAnimation);
         }
     }
 }

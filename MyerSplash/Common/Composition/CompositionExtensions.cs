@@ -1,4 +1,5 @@
 ﻿using MyerSplash.Common.Composition;
+using MyerSplashShared.Utils;
 using System;
 using System.Numerics;
 using Windows.UI.Composition;
@@ -10,13 +11,16 @@ namespace MyerSplash.Common
     public static class CompositionExtensions
     {
         private const string TRANSLATION = "Translation";
+        private const string OFFSET = "Offset";
 
         public static Visual GetVisual(this UIElement element)
         {
             var visual = ElementCompositionPreview.GetElementVisual(element);
-            ElementCompositionPreview.SetIsTranslationEnabled(element, true);
-            var properties = visual.Properties;
-            properties.InsertVector3(TRANSLATION, Vector3.Zero);
+            if (DeviceUtil.IsRS2OS)
+            {
+                ElementCompositionPreview.SetIsTranslationEnabled(element, true);
+                visual.Properties.InsertVector3(TRANSLATION, Vector3.Zero);
+            }
             return visual;
         }
 
@@ -27,13 +31,42 @@ namespace MyerSplash.Common
 
         public static void SetTranslation(this Visual set, Vector3 value)
         {
-            set.Properties.InsertVector3(TRANSLATION, value);
+            if (DeviceUtil.IsRS2OS)
+            {
+                set.Properties.InsertVector3(TRANSLATION, value);
+            }
+            else
+            {
+                set.Offset = value;
+            }
         }
 
         public static Vector3 GetTranslation(this Visual visual)
         {
-            visual.Properties.TryGetVector3(TRANSLATION, out Vector3 value);
-            return value;
+            if (DeviceUtil.IsRS2OS)
+            {
+                visual.Properties.TryGetVector3(TRANSLATION, out Vector3 value);
+                return value;
+            }
+            else
+            {
+                return visual.Offset;
+            }
+        }
+
+        public static string GetTranslationPropertyName(this Visual visual)
+        {
+            return AnimateProperties.Translation.GetPropertyValue();
+        }
+
+        public static string GetTranslationXPropertyName(this Visual visual)
+        {
+            return AnimateProperties.TranslationX.GetPropertyValue();
+        }
+
+        public static string GetTranslationYPropertyName(this Visual visual)
+        {
+            return AnimateProperties.TranslationY.GetPropertyValue();
         }
 
         public static string GetPropertyValue(this AnimateProperties property)
@@ -41,11 +74,23 @@ namespace MyerSplash.Common
             switch (property)
             {
                 case AnimateProperties.Translation:
-                    return "Translation";
+                    if (DeviceUtil.IsRS2OS)
+                    {
+                        return TRANSLATION;
+                    }
+                    else return OFFSET;
                 case AnimateProperties.TranslationX:
-                    return "Translation.X";
+                    if (DeviceUtil.IsRS2OS)
+                    {
+                        return $"{TRANSLATION}.X";
+                    }
+                    else return $"{OFFSET}.X"; ;
                 case AnimateProperties.TranslationY:
-                    return "Translation.Y";
+                    if (DeviceUtil.IsRS2OS)
+                    {
+                        return $"{TRANSLATION}.Y";
+                    }
+                    else return $"{OFFSET}.Y"; ;
                 case AnimateProperties.Opacity:
                     return "Opacity";
                 default:

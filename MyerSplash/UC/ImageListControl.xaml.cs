@@ -115,7 +115,7 @@ namespace MyerSplash.UC
             fadeAnimation.InsertKeyFrame(1f, 0.5f);
             fadeAnimation.Duration = TimeSpan.FromMilliseconds(400);
 
-            _containerVisual.StartAnimation("Translation", offsetAnimation);
+            _containerVisual.StartAnimation(_containerVisual.GetTranslationPropertyName(), offsetAnimation);
             _containerVisual.StartAnimation("Scale.x", scaleAnimation);
             _containerVisual.StartAnimation("Scale.y", scaleAnimation);
         }
@@ -130,7 +130,7 @@ namespace MyerSplash.UC
             scaleAnimation.InsertKeyFrame(1f, 1f);
             scaleAnimation.Duration = TimeSpan.FromMilliseconds(500);
 
-            _containerVisual.StartAnimation("Translation", offsetAnimation);
+            _containerVisual.StartAnimation(_containerVisual.GetTranslationPropertyName(), offsetAnimation);
             _containerVisual.StartAnimation("Scale.x", scaleAnimation);
             _containerVisual.StartAnimation("Scale.y", scaleAnimation);
         }
@@ -179,7 +179,7 @@ namespace MyerSplash.UC
                 fadeAnimation.DelayTime = TimeSpan.FromMilliseconds(delayIndex * 100);
 
                 // Start animations
-                itemVisual.StartAnimation("Translation.X", offsetAnimation);
+                itemVisual.StartAnimation(itemVisual.GetTranslationXPropertyName(), offsetAnimation);
                 itemVisual.StartAnimation("Opacity", fadeAnimation);
             }
             itemContainer.Loaded -= ItemContainer_Loaded;
@@ -317,7 +317,7 @@ namespace MyerSplash.UC
             offsetAnimation.InsertKeyFrame(1f, 100f);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(300);
 
-            _listVisual.StartAnimation("Translation.y", offsetAnimation);
+            _listVisual.StartAnimation(_listVisual.GetTranslationYPropertyName(), offsetAnimation);
             LoadingControl.Visibility = Visibility.Visible;
             LoadingControl.Start();
         }
@@ -328,7 +328,7 @@ namespace MyerSplash.UC
             offsetAnimation.InsertKeyFrame(1f, 0f);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(300);
 
-            _listVisual.StartAnimation("Translation.y", offsetAnimation);
+            _listVisual.StartAnimation(_listVisual.GetTranslationYPropertyName(), offsetAnimation);
             LoadingControl.Visibility = Visibility.Collapsed;
             LoadingControl.Stop();
         }

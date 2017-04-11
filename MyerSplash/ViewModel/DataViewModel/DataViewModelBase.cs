@@ -20,15 +20,6 @@ namespace MyerSplash.ViewModel
         public event Action<IEnumerable<T>, int> OnLoadIncrementalDataCompleted;
         public event Action<bool> OnHasMoreItemChanged;
 
-        /// <summary>
-        /// 实现了增量加载的 List
-        /// 应该这样初始化：
-        /// DataList = new IncrementalLoadingCollection<T>(count =>
-        ///{
-        ///    return Task.Run(() => GetIncrementalListData(pageIndex++));
-        ///});
-        /// 其中加载数据的逻辑都在：GetIncrementalListData(int pageIndex) 
-        /// </summary>
         private IncrementalLoadingCollection<T> _dataList;
         public IncrementalLoadingCollection<T> DataList
         {

@@ -226,7 +226,7 @@ namespace MyerSplash.UC
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(1000);
             offsetAnimation.DelayTime = TimeSpan.FromMilliseconds(show ? 500 : 0);
 
-            _flipperVisual.StartAnimation("Translation", offsetAnimation);
+            _flipperVisual.StartAnimation(_flipperVisual.GetTranslationPropertyName(), offsetAnimation);
         }
 
         private void ToggleShareBtnAnimation(bool show)
@@ -236,7 +236,7 @@ namespace MyerSplash.UC
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(show ? 1000 : 400);
             offsetAnimation.DelayTime = TimeSpan.FromMilliseconds(show ? 400 : 0);
 
-            _shareBtnVisual.StartAnimation("Translation", offsetAnimation);
+            _shareBtnVisual.StartAnimation(_shareBtnVisual.GetTranslationPropertyName(), offsetAnimation);
         }
 
         private void ToggleInfoGridAnimation(bool show)
@@ -246,7 +246,7 @@ namespace MyerSplash.UC
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(500);
             offsetAnimation.DelayTime = TimeSpan.FromMilliseconds(show ? 500 : 0);
 
-            _infoGridVisual.StartAnimation("Translation", offsetAnimation);
+            _infoGridVisual.StartAnimation(_infoGridVisual.GetTranslationPropertyName(), offsetAnimation);
         }
 
         private void DetailGrid_SizeChanged(object sender, SizeChangedEventArgs e)

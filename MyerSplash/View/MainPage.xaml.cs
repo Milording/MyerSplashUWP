@@ -138,7 +138,7 @@ namespace MyerSplash.View
             offsetAnim.InsertKeyFrame(1f, show ? 0f : -DRAWER_WIDTH);
             offsetAnim.Duration = TimeSpan.FromMilliseconds(300);
 
-            _drawerVisual.StartAnimation("Translation.X", offsetAnim);
+            _drawerVisual.StartAnimation(_drawerVisual.GetTranslationXPropertyName(), offsetAnim);
         }
 
         private void ToggleDrawerMaskAnimation(bool show)
@@ -265,7 +265,7 @@ namespace MyerSplash.View
             offsetAnimation.InsertKeyFrame(1f, show ? 0f : -100f);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(500);
 
-            _titleGridVisual.StartAnimation("Translation.Y", offsetAnimation);
+            _titleGridVisual.StartAnimation(_titleGridVisual.GetTranslationYPropertyName(), offsetAnimation);
         }
 
         private void ToggleRefreshBtnAnimation(bool show)
@@ -285,7 +285,7 @@ namespace MyerSplash.View
             offsetAnimation.InsertKeyFrame(1f, show ? 0f : -100f);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(500);
 
-            _titleStackVisual.StartAnimation("Translation.Y", offsetAnimation);
+            _titleStackVisual.StartAnimation(_titleStackVisual.GetTranslationYPropertyName(), offsetAnimation);
         }
 
         private void ListControl_OnScrollViewerViewChanged(ScrollViewer scrollViewer)
