@@ -1,9 +1,12 @@
-﻿using MyerSplash.Common;
+﻿using JP.Utils.UI;
+using Microsoft.Graphics.Canvas.Effects;
+using MyerSplash.Common;
 using MyerSplash.Model;
 using MyerSplash.ViewModel;
 using System;
 using System.Numerics;
 using Windows.Foundation;
+using Windows.UI;
 using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -79,7 +82,57 @@ namespace MyerSplash.View
             this.DataContext = MainVM = new MainViewModel();
             this.Loaded += MainPage_Loaded;
             InitComposition();
+            InitBlur();
             InitBinding();
+        }
+
+        private void BlurBackground_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (_blurVisual != null)
+            {
+                _blurVisual.Size = new Vector2((float)e.NewSize.Width, (float)e.NewSize.Height);
+            }
+        }
+
+        private SpriteVisual _blurVisual;
+
+        private CompositionEffectBrush BuildEffectBrush()
+        {
+            var effect = new GaussianBlurEffect()
+            {
+                BlurAmount = 4f,
+                BorderMode = EffectBorderMode.Hard,
+                Source = new ArithmeticCompositeEffect()
+                {
+                    MultiplyAmount = 0,
+                    Source1Amount = 0.2f,
+                    Source2Amount = 0.8f,
+                    Source1 = new CompositionEffectSourceParameter("source"),
+                    Source2 = new ColorSourceEffect()
+                    {
+                        Color = "#000000".ToColor()
+                    }
+                }
+            };
+
+            var effectFactory = _compositor.CreateEffectFactory(effect);
+            var backdropBrush = _compositor.CreateHostBackdropBrush();
+            var effectBrush = effectFactory.CreateBrush();
+            effectBrush.SetSourceParameter("source", backdropBrush);
+
+            return effectBrush;
+        }
+
+        private void InitBlur()
+        {
+            var stackVisual = BlurBackground.GetVisual();
+            var effectBrush = BuildEffectBrush();
+
+            _blurVisual = _compositor.CreateSpriteVisual();
+            _blurVisual.Brush = effectBrush;
+            _blurVisual.Size = new Vector2((float)BlurBackground.ActualWidth, (float)BlurBackground.ActualHeight);
+
+            ElementCompositionPreview.SetElementChildVisual(BlurBackground, _blurVisual);
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)

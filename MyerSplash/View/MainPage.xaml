@@ -23,6 +23,7 @@
             <RowDefinition Height="70" />
             <RowDefinition />
         </Grid.RowDefinitions>
+        <Grid x:Name="BlurBackground" SizeChanged="BlurBackground_SizeChanged" Grid.RowSpan="5" Grid.ColumnSpan="5"/>
         <Grid
             x:Name="ContentGrid"
             Grid.Row="0"
@@ -86,6 +87,7 @@
                 <ColumnDefinition Width="60" />
                 <ColumnDefinition x:Name="C3" Width="60" />
             </Grid.ColumnDefinitions>
+            <Border x:Name="BlurBorder" Grid.ColumnSpan="5"/>
             <Border x:Name="HamBtnBorder">
                 <uc:HamburgerButton
                     x:Name="HamBtn"
@@ -95,7 +97,6 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Command="{x:Bind MainVM.OpenDrawerCommand, Mode=OneWay}" />
-
             </Border>
             <Border
                 Grid.Column="1"
