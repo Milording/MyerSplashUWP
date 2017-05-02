@@ -93,6 +93,8 @@ namespace MyerSplash.Common
                     else return $"{OFFSET}.Y"; ;
                 case AnimateProperties.Opacity:
                     return "Opacity";
+                case AnimateProperties.RotationAngleInDegrees:
+                    return "RotationAngleInDegrees";
                 default:
                     throw new ArgumentException("Unknown properties");
             }

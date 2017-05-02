@@ -98,6 +98,7 @@ namespace MyerSplash.Common.Composition
         Translation,
         TranslationY,
         TranslationX,
-        Opacity
+        Opacity,
+        RotationAngleInDegrees
     }
 }

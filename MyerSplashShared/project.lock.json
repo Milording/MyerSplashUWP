@@ -15684,14 +15684,14 @@
     "UAP,Version=v10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\JuniperPhoton\\.nuget\\packages\\": {}
+    "C:\\Users\\dengw\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "D:\\Dev\\MyerSplash\\MyerSplashShared\\MyerSplashShared.csproj",
+      "projectUniqueName": "D:\\Dev\\MyerSplashUWP\\MyerSplashShared\\MyerSplashShared.csproj",
       "projectName": "MyerSplashShared",
-      "projectPath": "D:\\Dev\\MyerSplash\\MyerSplashShared\\MyerSplashShared.csproj",
-      "projectJsonPath": "D:\\Dev\\MyerSplash\\MyerSplashShared\\project.json",
+      "projectPath": "D:\\Dev\\MyerSplashUWP\\MyerSplashShared\\MyerSplashShared.csproj",
+      "projectJsonPath": "D:\\Dev\\MyerSplashUWP\\MyerSplashShared\\project.json",
       "projectStyle": "ProjectJson"
     },
     "dependencies": {

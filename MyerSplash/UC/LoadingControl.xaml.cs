@@ -1,4 +1,4 @@
-﻿using CompositionHelper;
+﻿using MyerSplash.Common;
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.UI.Composition;
