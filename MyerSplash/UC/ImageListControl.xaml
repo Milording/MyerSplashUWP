@@ -3,12 +3,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:attach="using:JP.Utils.Framework"
-    xmlns:cc="using:JP.Utils.Control"
-    xmlns:common="using:MyerSplash.Common"
     xmlns:control="using:MyerSplashCustomControl"
     xmlns:converter="using:MyerSplash.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:MyerSplash.UC"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:MyerSplash.Model"
     xmlns:uc="using:MyerSplash.UC"
@@ -20,7 +17,7 @@
     </UserControl.Resources>
     <control:AdaptiveGridView
         x:Name="ImageGridView"
-        Margin="0,-70,0,0"
+        Margin="8,-70,8,0"
         attach:ScrollViewerStyleChanger.Style="{StaticResource ScrollViewerCommonStyle}"
         ContainerContentChanging="AdaptiveGridView_ContainerContentChanging"
         IncrementalLoadingTrigger="Edge"
@@ -34,7 +31,7 @@
         SelectionMode="None"
         ShowsScrollingPlaceholders="False">
         <control:AdaptiveGridView.Header>
-            <Grid Height="{StaticResource PosterHeight}">
+            <Grid Height="140">
                 <uc:LoadingControl x:Name="LoadingControl" />
             </Grid>
         </control:AdaptiveGridView.Header>
@@ -42,6 +39,7 @@
             <DataTemplate x:DataType="model:UnsplashImageBase">
                 <Grid
                     x:Name="RootGrid"
+                    Margin="8"
                     CanDrag="True"
                     DragStarting="RootGrid_DragStarting"
                     Loaded="RootGrid_Loaded"
@@ -49,10 +47,11 @@
                     Tapped="RootGrid_Tapped"
                     Unloaded="RootGrid_Unloaded">
                     <Border Background="{x:Bind BackColor, Mode=OneWay}" Opacity="0.3" />
-                    <Image
-                        x:Name="Img"
-                        Source="{x:Bind ListImageBitmap.Bitmap, Mode=OneWay}"
-                        Stretch="UniformToFill" />
+                    <Border x:Name="ImageBorder" CornerRadius="2">
+                        <Border.Background>
+                            <ImageBrush ImageSource="{x:Bind ListImageBitmap.Bitmap, Mode=OneWay}" Stretch="UniformToFill" />
+                        </Border.Background>
+                    </Border>
                     <Border x:Name="MaskBorder" Background="#53000000">
                         <Grid>
                             <StackPanel

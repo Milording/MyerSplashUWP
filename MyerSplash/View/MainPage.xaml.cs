@@ -100,12 +100,12 @@ namespace MyerSplash.View
         {
             var effect = new GaussianBlurEffect()
             {
-                BlurAmount = 4f,
-                BorderMode = EffectBorderMode.Hard,
+                BlurAmount = 2f,
+                BorderMode = EffectBorderMode.Soft,
                 Source = new ArithmeticCompositeEffect()
                 {
                     MultiplyAmount = 0,
-                    Source1Amount = 0.2f,
+                    Source1Amount = 0.4f,
                     Source2Amount = 0.8f,
                     Source1 = new CompositionEffectSourceParameter("source"),
                     Source2 = new ColorSourceEffect()

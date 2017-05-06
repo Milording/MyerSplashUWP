@@ -325,7 +325,7 @@ namespace MyerSplash.UC
         private void HideRefreshing()
         {
             var offsetAnimation = _compositor.CreateScalarKeyFrameAnimation();
-            offsetAnimation.InsertKeyFrame(1f, 100f);
+            offsetAnimation.InsertKeyFrame(1f, 0f);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(300);
 
             _listVisual.StartAnimation(_listVisual.GetTranslationYPropertyName(), offsetAnimation);
