@@ -20,32 +20,35 @@ namespace MyerSplash.Common.Brush
             DependencyProperty.Register("TintColor", typeof(Color), typeof(AcrylicBrushBase),
                 new PropertyMetadata(null));
 
-        public float BackdropFactor
+        public double BackdropFactor
         {
-            get { return (float)GetValue(BackdropFactorProperty); }
+            get { return (double)GetValue(BackdropFactorProperty); }
             set { SetValue(BackdropFactorProperty, value); }
         }
 
         public static readonly DependencyProperty BackdropFactorProperty =
-            DependencyProperty.Register("BackdropFactor", typeof(float), typeof(AcrylicBrushBase), new PropertyMetadata(0.5f));
+            DependencyProperty.Register("BackdropFactor", typeof(double), typeof(AcrylicBrushBase),
+                new PropertyMetadata(0.5d));
 
-        public float TintColorFactor
+        public double TintColorFactor
         {
-            get { return (float)GetValue(TintColorFactorProperty); }
+            get { return (double)GetValue(TintColorFactorProperty); }
             set { SetValue(TintColorFactorProperty, value); }
         }
 
         public static readonly DependencyProperty TintColorFactorProperty =
-            DependencyProperty.Register("TintColorFactor", typeof(float), typeof(AcrylicBrushBase), new PropertyMetadata(0.5f));
+            DependencyProperty.Register("TintColorFactor", typeof(double), typeof(AcrylicBrushBase),
+                new PropertyMetadata(0.5d));
 
-        public float BlurAmount
+        public double BlurAmount
         {
-            get { return (float)GetValue(BlurAmountProperty); }
+            get { return (double)GetValue(BlurAmountProperty); }
             set { SetValue(BlurAmountProperty, value); }
         }
 
         public static readonly DependencyProperty BlurAmountProperty =
-            DependencyProperty.Register("BlurAmount", typeof(float), typeof(AcrylicBrushBase), new PropertyMetadata(2f));
+            DependencyProperty.Register("BlurAmount", typeof(double), typeof(AcrylicBrushBase),
+                new PropertyMetadata(2d));
 
         public AcrylicBrushBase()
         {
@@ -58,9 +61,9 @@ namespace MyerSplash.Common.Brush
             base.OnConnected();
             _compositor = Window.Current.Content.GetVisual().Compositor;
             _brush = new CompositionBrushBuilder(GetBrushType()).SetTintColor(TintColor)
-                .SetBackdropFactor(BackdropFactor)
-                .SetTintColorFactor(TintColorFactor)
-                .SetBlurAmount(BlurAmount)
+                .SetBackdropFactor((float)BackdropFactor)
+                .SetTintColorFactor((float)TintColorFactor)
+                .SetBlurAmount((float)BlurAmount)
                 .Build(_compositor);
             CompositionBrush = _brush;
         }

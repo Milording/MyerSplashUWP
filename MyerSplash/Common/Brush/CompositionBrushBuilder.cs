@@ -76,7 +76,6 @@ namespace MyerSplash.Common.Brush
         public CompositionEffectBrush Build(Compositor compositor)
         {
             var effectBrush = CreateBlurEffect(compositor);
-
             CompositionBackdropBrush backdropBrush;
             switch (_brushType)
             {
