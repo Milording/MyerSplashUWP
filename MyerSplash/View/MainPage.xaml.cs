@@ -96,37 +96,9 @@ namespace MyerSplash.View
 
         private SpriteVisual _blurVisual;
 
-        private CompositionEffectBrush BuildEffectBrush()
-        {
-            var effect = new GaussianBlurEffect()
-            {
-                BlurAmount = 2f,
-                BorderMode = EffectBorderMode.Soft,
-                Source = new ArithmeticCompositeEffect()
-                {
-                    MultiplyAmount = 0,
-                    Source1Amount = 0.4f,
-                    Source2Amount = 0.8f,
-                    Source1 = new CompositionEffectSourceParameter("source"),
-                    Source2 = new ColorSourceEffect()
-                    {
-                        Color = "#000000".ToColor()
-                    }
-                }
-            };
-
-            var effectFactory = _compositor.CreateEffectFactory(effect);
-            var backdropBrush = _compositor.CreateHostBackdropBrush();
-            var effectBrush = effectFactory.CreateBrush();
-            effectBrush.SetSourceParameter("source", backdropBrush);
-
-            return effectBrush;
-        }
-
         private void InitBlur()
         {
-            var stackVisual = BlurBackground.GetVisual();
-            var effectBrush = BuildEffectBrush();
+            var effectBrush = CompositionBrushUtil.BuildHostBackdropBrush(_compositor);
 
             _blurVisual = _compositor.CreateSpriteVisual();
             _blurVisual.Brush = effectBrush;

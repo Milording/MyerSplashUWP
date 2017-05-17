@@ -4,17 +4,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:attach="using:JP.Utils.Framework"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:MyerSplash.UC"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:MyerSplash.Model"
     d:DesignHeight="700"
     d:DesignWidth="300"
     mc:Ignorable="d">
-    <Grid Background="{StaticResource TitleBarDarkBrush}">
+    <Grid x:Name="RootGrid" >
         <Grid.RowDefinitions>
             <RowDefinition Height="120" />
             <RowDefinition />
         </Grid.RowDefinitions>
+        <Grid x:Name="BlurBackground" Grid.RowSpan="2" SizeChanged="BlurBackground_SizeChanged"/>
         <Grid Margin="0,0,0,0">
             <StackPanel Margin="0,0,0,12" VerticalAlignment="Bottom">
                 <StackPanel Margin="0,0,0,4" Orientation="Horizontal">

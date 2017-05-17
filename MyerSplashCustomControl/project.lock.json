@@ -15684,14 +15684,14 @@
     "UAP,Version=v10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\dengw\\.nuget\\packages\\": {}
+    "C:\\Users\\JuniperPhoton\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "D:\\Dev\\MyerSplashUWP\\MyerSplashCustomControl\\MyerSplashCustomControl.csproj",
+      "projectUniqueName": "D:\\Dev\\MyerSplash\\MyerSplashCustomControl\\MyerSplashCustomControl.csproj",
       "projectName": "MyerSplashCustomControl",
-      "projectPath": "D:\\Dev\\MyerSplashUWP\\MyerSplashCustomControl\\MyerSplashCustomControl.csproj",
-      "projectJsonPath": "D:\\Dev\\MyerSplashUWP\\MyerSplashCustomControl\\project.json",
+      "projectPath": "D:\\Dev\\MyerSplash\\MyerSplashCustomControl\\MyerSplashCustomControl.csproj",
+      "projectJsonPath": "D:\\Dev\\MyerSplash\\MyerSplashCustomControl\\project.json",
       "projectStyle": "ProjectJson"
     },
     "dependencies": {
