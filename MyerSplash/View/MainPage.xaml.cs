@@ -82,29 +82,7 @@ namespace MyerSplash.View
             this.DataContext = MainVM = new MainViewModel();
             this.Loaded += MainPage_Loaded;
             InitComposition();
-            InitBlur();
             InitBinding();
-        }
-
-        private void BlurBackground_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            if (_blurVisual != null)
-            {
-                _blurVisual.Size = new Vector2((float)e.NewSize.Width, (float)e.NewSize.Height);
-            }
-        }
-
-        private SpriteVisual _blurVisual;
-
-        private void InitBlur()
-        {
-            var effectBrush = CompositionBrushUtil.BuildHostBackdropBrush(_compositor);
-
-            _blurVisual = _compositor.CreateSpriteVisual();
-            _blurVisual.Brush = effectBrush;
-            _blurVisual.Size = new Vector2((float)BlurBackground.ActualWidth, (float)BlurBackground.ActualHeight);
-
-            ElementCompositionPreview.SetElementChildVisual(BlurBackground, _blurVisual);
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)

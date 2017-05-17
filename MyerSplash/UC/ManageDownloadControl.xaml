@@ -7,7 +7,6 @@
     xmlns:control="using:MyerSplashCustomControl"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:media="using:Windows.UI.Xaml.Media"
     xmlns:model="using:MyerSplash.Model"
     xmlns:uc="using:MyerSplash.UC"
     d:DesignHeight="600"
@@ -15,23 +14,12 @@
     mc:Ignorable="d">
     <UserControl.Background>
         <StaticResource ResourceKey="MyerSplashThemeColor" />
-        <!--<media:AcrylicBrush
-            x:Key="HostBackdropBrush"
-            BackgroundSource="HostBackdrop"
-            FallbackColor="LightSkyBlue"
-            FallbackForced="False"
-            TintColor="LightBlue"
-            TintOpacity="0.6" />-->
     </UserControl.Background>
-    <Grid x:Name="RootGrid">
+    <Grid x:Name="RootGrid" Background="{StaticResource AppBackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid
-            x:Name="BlurBackground"
-            Grid.RowSpan="2"
-            SizeChanged="BlurBackground_SizeChanged" />
         <Grid x:Name="TitleBar">
             <TextBlock
                 Margin="0,0,0,0"

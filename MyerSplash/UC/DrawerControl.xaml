@@ -9,12 +9,12 @@
     d:DesignHeight="700"
     d:DesignWidth="300"
     mc:Ignorable="d">
-    <Grid x:Name="RootGrid" >
+    <Grid x:Name="RootGrid" Background="{StaticResource AppBackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="120" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid x:Name="BlurBackground" Grid.RowSpan="2" SizeChanged="BlurBackground_SizeChanged"/>
+        <Grid x:Name="BlurBackground" Grid.RowSpan="2"/>
         <Grid Margin="0,0,0,0">
             <StackPanel Margin="0,0,0,12" VerticalAlignment="Bottom">
                 <StackPanel Margin="0,0,0,4" Orientation="Horizontal">

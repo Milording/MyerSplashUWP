@@ -17428,26 +17428,26 @@
     "UAP,Version=v10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\JuniperPhoton\\.nuget\\packages\\": {}
+    "C:\\Users\\dengw\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
-      "projectUniqueName": "D:\\Dev\\MyerSplash\\MyerSplash\\MyerSplash.csproj",
+      "projectUniqueName": "D:\\Dev\\MyerSplashUWP\\MyerSplash\\MyerSplash.csproj",
       "projectName": "MyerSplash",
-      "projectPath": "D:\\Dev\\MyerSplash\\MyerSplash\\MyerSplash.csproj",
-      "projectJsonPath": "D:\\Dev\\MyerSplash\\MyerSplash\\project.json",
+      "projectPath": "D:\\Dev\\MyerSplashUWP\\MyerSplash\\MyerSplash.csproj",
+      "projectJsonPath": "D:\\Dev\\MyerSplashUWP\\MyerSplash\\project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "D:\\Dev\\MyerSplash\\BackgroundTask\\BackgroundTask.csproj": {
-              "projectPath": "D:\\Dev\\MyerSplash\\BackgroundTask\\BackgroundTask.csproj"
+            "D:\\Dev\\MyerSplashUWP\\BackgroundTask\\BackgroundTask.csproj": {
+              "projectPath": "D:\\Dev\\MyerSplashUWP\\BackgroundTask\\BackgroundTask.csproj"
             },
-            "D:\\Dev\\MyerSplash\\MyerSplashCustomControl\\MyerSplashCustomControl.csproj": {
-              "projectPath": "D:\\Dev\\MyerSplash\\MyerSplashCustomControl\\MyerSplashCustomControl.csproj"
+            "D:\\Dev\\MyerSplashUWP\\MyerSplashCustomControl\\MyerSplashCustomControl.csproj": {
+              "projectPath": "D:\\Dev\\MyerSplashUWP\\MyerSplashCustomControl\\MyerSplashCustomControl.csproj"
             },
-            "D:\\Dev\\MyerSplash\\MyerSplashShared\\MyerSplashShared.csproj": {
-              "projectPath": "D:\\Dev\\MyerSplash\\MyerSplashShared\\MyerSplashShared.csproj"
+            "D:\\Dev\\MyerSplashUWP\\MyerSplashShared\\MyerSplashShared.csproj": {
+              "projectPath": "D:\\Dev\\MyerSplashUWP\\MyerSplashShared\\MyerSplashShared.csproj"
             }
           }
         }

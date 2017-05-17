@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="/ResourceDictionary/ColorDictionary.xaml" />
                 <ResourceDictionary Source="/ResourceDictionary/StyleDictionary.xaml" />
                 <ResourceDictionary Source="/ResourceDictionary/StringDictionary.xaml" />
+                <ResourceDictionary Source="/ResourceDictionary/BrushDictionary.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <vm:ViewModelLocator x:Key="Locator" />
             <common:AppSettings x:Key="AppSettings" />

@@ -106,10 +106,13 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\AppSettings.cs" />
+    <Compile Include="Common\Brush\AcrylicBrush.cs" />
+    <Compile Include="Common\Brush\AcrylicBrushBase.cs" />
+    <Compile Include="Common\Brush\AcrylicHostBrush.cs" />
     <Compile Include="Common\BackgroundTaskRegister.cs" />
     <Compile Include="Common\BindablePage.cs" />
     <Compile Include="Common\CachedFileNames.cs" />
-    <Compile Include="Common\Backdrop\CompositionBrushUtil.cs" />
+    <Compile Include="Common\Brush\CompositionBrushUtil.cs" />
     <Compile Include="Common\Composition\CompositionAnimationBuilder.cs" />
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\CustomizedTitleBarPage.cs" />
@@ -294,6 +297,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ResourceDictionary\BrushDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
     <Page Include="UC\AboutControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

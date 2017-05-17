@@ -18,12 +18,11 @@
             <attach:InvokeCommandByKeyDown Command="{x:Bind MainVM.SearchCommand}" PressedKey="F6" />
         </Core:EventTriggerBehavior>
     </Interactivity:Interaction.Behaviors>
-    <Grid x:Name="RootGrid" Background="{StaticResource RootBackgrdBrush}">
+    <Grid x:Name="RootGrid" Background="{StaticResource AppHostBackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="70" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid x:Name="BlurBackground" SizeChanged="BlurBackground_SizeChanged" Grid.RowSpan="5" Grid.ColumnSpan="5"/>
         <Grid
             x:Name="ContentGrid"
             Grid.Row="0"

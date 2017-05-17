@@ -1,0 +1,7 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:backdrop="using:MyerSplash.Common.Brush">
+    <backdrop:AcrylicBrush x:Key="AppBackgroundBrush"/>
+    <backdrop:AcrylicHostBrush x:Key="AppHostBackgroundBrush"/>
+</ResourceDictionary>
