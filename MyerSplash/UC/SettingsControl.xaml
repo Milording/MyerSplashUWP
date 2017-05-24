@@ -2,6 +2,7 @@
     x:Class="MyerSplash.UC.SettingsControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:backdrop="using:MyerSplash.Common.Brush"
     xmlns:common="using:MyerSplash.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:framework="using:JP.Utils.Framework"
@@ -22,15 +23,12 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
         </Style>
     </UserControl.Resources>
-    <UserControl.Background>
-        <StaticResource ResourceKey="MyerSplashThemeColor" />
-    </UserControl.Background>
-    <Grid Background="{StaticResource TitleBarDarkBrush}">
+    <Grid Background="{StaticResource AppBackgroundBrushDark}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid x:Name="TitleBar" Background="{StaticResource TitleBarDarkBrush}">
+        <Grid x:Name="TitleBar" Background="Transparent">
             <TextBlock
                 Margin="0,0,0,0"
                 HorizontalAlignment="Center"

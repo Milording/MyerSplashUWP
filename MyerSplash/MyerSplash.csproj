@@ -113,7 +113,13 @@
     <Compile Include="Common\BindablePage.cs" />
     <Compile Include="Common\CachedFileNames.cs" />
     <Compile Include="Common\Brush\CompositionBrushBuilder.cs" />
+    <Compile Include="Common\Composition\BitmapDrawer.cs" />
+    <Compile Include="Common\Composition\CircleDrawer.cs" />
     <Compile Include="Common\Composition\CompositionAnimationBuilder.cs" />
+    <Compile Include="Common\Composition\ContentDrawer.cs" />
+    <Compile Include="Common\Composition\ImageLoader.cs" />
+    <Compile Include="Common\Composition\ManagedSurface.cs" />
+    <Compile Include="Common\Composition\TextDrawer.cs" />
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\CustomizedTitleBarPage.cs" />
     <Compile Include="Common\DownloadStatus.cs" />
@@ -224,6 +230,7 @@
     <Content Include="Assets\Image\lock.png" />
     <Content Include="Assets\Icon\search.png" />
     <Content Include="Assets\Image\banner.jpg" />
+    <Content Include="Assets\Image\Noise.jpg" />
     <Content Include="Assets\Image\pc_taskbar_l.png" />
     <Content Include="Assets\Image\pc_taskbar_r.png" />
     <Content Include="Assets\Image\hint.png" />

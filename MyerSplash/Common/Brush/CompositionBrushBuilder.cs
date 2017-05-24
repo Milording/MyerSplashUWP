@@ -1,4 +1,6 @@
 ﻿using Microsoft.Graphics.Canvas.Effects;
+using MyerSplash.Common.Composition;
+using System;
 using Windows.UI;
 using Windows.UI.Composition;
 
@@ -19,6 +21,8 @@ namespace MyerSplash.Common.Brush
         private float _blurAmount = 2f;
         private Color _tintColor = Colors.Black;
         private BackdropBrushType _brushType = BackdropBrushType.Backdrop;
+
+        private ManagedSurface mNoiseSurface;
 
         public CompositionBrushBuilder(BackdropBrushType type)
         {
@@ -51,21 +55,35 @@ namespace MyerSplash.Common.Brush
 
         private CompositionEffectBrush CreateBlurEffect(Compositor compositor)
         {
+            var blendEffect0 = new ArithmeticCompositeEffect()
+            {
+                MultiplyAmount = 0,
+                Source1Amount = _backdropFactor,
+                Source2Amount = _tintColorFactor,
+                Source1 = new CompositionEffectSourceParameter(SOURCE_KEY),
+                Source2 = new ColorSourceEffect()
+                {
+                    Color = _tintColor
+                }
+            };
+
+            var blendEffect1 = new BlendEffect()
+            {
+                Background = blendEffect0,
+                Foreground = new ContrastEffect()
+                {
+                    Source = new CompositionEffectSourceParameter("NoiseImage"),
+                    Contrast = 0,
+                }
+            };
+
+            
+
             var effect = new GaussianBlurEffect()
             {
                 BlurAmount = _blurAmount,
                 BorderMode = EffectBorderMode.Soft,
-                Source = new ArithmeticCompositeEffect()
-                {
-                    MultiplyAmount = 0,
-                    Source1Amount = _backdropFactor,
-                    Source2Amount = _tintColorFactor,
-                    Source1 = new CompositionEffectSourceParameter(SOURCE_KEY),
-                    Source2 = new ColorSourceEffect()
-                    {
-                        Color = _tintColor
-                    }
-                }
+                Source = blendEffect1
             };
 
             var effectFactory = compositor.CreateEffectFactory(effect);
@@ -87,6 +105,9 @@ namespace MyerSplash.Common.Brush
                     backdropBrush = compositor.CreateHostBackdropBrush();
                     break;
             }
+            mNoiseSurface = ImageLoader.Instance.LoadFromUri(new Uri("ms-appx:///Assets/Image/Noise.jpg"));
+            mNoiseSurface.Brush.Stretch = CompositionStretch.UniformToFill;
+            effectBrush.SetSourceParameter("NoiseImage", mNoiseSurface.Brush);
             effectBrush.SetSourceParameter(SOURCE_KEY, backdropBrush);
             return effectBrush;
         }

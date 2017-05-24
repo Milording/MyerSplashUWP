@@ -20,7 +20,7 @@
             <RowDefinition Height="60" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid x:Name="TitleBar">
+        <Grid x:Name="TitleBar" Background="Transparent">
             <TextBlock
                 Margin="0,0,0,0"
                 HorizontalAlignment="Center"
